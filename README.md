@@ -1,1 +1,1 @@
-This is my Myntra review Scrapper prooject
+This is my Myntra review Scrapper project
