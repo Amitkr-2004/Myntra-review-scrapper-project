@@ -16,7 +16,7 @@ class MongoIO:
             mongo_db_url = MONGODB_URL_KEY
 
             if mongo_db_url is None:
-                raise   Exception(f"Environment key:{MONGODB_URL_KEY} is not set")
+                raise Exception(f"Environment key:{MONGODB_URL_KEY} is not set")
             
             MongoIO.mongo_ins=mongo(client_url=mongo_db_url,database_name=MONGO_DATABASE_NAME)
 
@@ -24,6 +24,7 @@ class MongoIO:
 
     def store_reviews(self,product_name:str,reviews:pd.DataFrame):
         try:
+
             collection_name = product_name.replace(' ','_')
 
             self.mongo_ins.bulk_insert(reviews,collection_name)
